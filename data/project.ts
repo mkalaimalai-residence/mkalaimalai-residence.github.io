@@ -17,7 +17,7 @@ export const project: Project = {
   direction: "Contemporary minimalist · warm, calm, architectural",
   heroImage: "/images/elevation/hero.jpg",
   conceptStatement:
-    "Three board-formed concrete volumes wrapped in vertical teak slats step around a central water courtyard, dissolving the line between inside and out. Double-height glazing pulls in the south light; a reflecting pool and a single frangipani anchor the calm.",
+    "Sleek, cohesive masses—crowned by a quiet gabled roofline—fold around a North-East green court, where a serene water body and lush planting dissolve the line between inside and out. Thoughtfully placed openings draw soft, diffused light deep into the home, while the private upper-floor rooms look out over the calm of the courtyard.",
 
   // Internal / portal-only — keep OUT of the public site.
   // Locating identifiers are redacted in this public repo; the real values are
