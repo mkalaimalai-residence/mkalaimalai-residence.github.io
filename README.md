@@ -21,7 +21,7 @@ Bengaluru:
 |---|---|
 | Framework | Next.js 16 (App Router) |
 | Language | TypeScript (strict, no `any`) |
-| Styling | Tailwind CSS v4 (CSS-first theme tokens) |
+| Styling | Tailwind CSS v4 (CSS-first theme tokens, light + dark) |
 | UI helpers | shadcn-compatible config + `cn`, lucide-react icons |
 | Fonts | Fraunces (serif headings) + Inter (sans body) via `next/font` |
 | Data (MVP) | Local TypeScript modules in `data/`, read through a repository layer |
@@ -85,11 +85,11 @@ app/                     # routes (App Router)
   gallery/               #   /gallery   filterable image grid
   lessons/               #   /lessons   learnings with impact tags
   portal/                #   /portal    placeholder until Session C
-  layout.tsx             #   header + footer + fonts + theme
-  globals.css            #   theme tokens (palette + fonts)
+  layout.tsx             #   header + footer + fonts + theme + no-flash theme script
+  globals.css            #   theme tokens (light palette + `.dark` palette + fonts)
 
-components/              # SiteHeader, SiteFooter, SpaceCard, DomainCard, MaterialCard,
-                         # GalleryGrid, MaterialsLibrary, Timeline, StatusBadge, Chip, …
+components/              # SiteHeader, SiteFooter, ThemeToggle, SpaceCard, DomainCard,
+                         # MaterialCard, GalleryGrid, MaterialsLibrary, Timeline, Chip, …
 types/index.ts           # all 14 entity interfaces — the data contract
 lib/
   repository.ts          # async getX() per entity (the single data entry point)
@@ -119,6 +119,29 @@ home-automation decision, and a lesson. The site resolves those links at render 
 Some figures (exact quotes, the Italian furniture brand names) are realistic placeholders
 marked `// TODO: confirm`; genuinely sensitive numbers are deliberately kept out of seed
 data until real auth exists.
+
+---
+
+## Theming (light + dark)
+
+The site ships a warm editorial **light** theme (the default) and an opt-in **dark**
+theme. Every surface is painted from semantic CSS variables — `--background`,
+`--foreground`, `--card`, `--muted`, `--accent`, … — defined once in `globals.css` and
+exposed to Tailwind v4 via `@theme inline`. Components only ever use the resulting token
+utilities (`bg-background`, `text-muted-foreground`, …), never raw colors.
+
+Because of that, dark mode is a pure palette swap: the `.dark` block in `globals.css`
+re-declares the same variables on a deep espresso ground, and the whole UI flips with no
+component changes.
+
+- **Toggle** — `components/ThemeToggle.tsx` (a sun/moon button in the header) adds or
+  removes the `dark` class on `<html>` and remembers the choice in `localStorage`.
+- **No flash** — a tiny inline script in `layout.tsx` re-applies the saved choice before
+  paint, so returning dark-mode visitors never see a light flash on load.
+- **Adding colors** — define the token in both `:root` and `.dark`, map it under
+  `@theme inline`, then use its utility. Avoid hardcoded Tailwind colors so both themes
+  stay in sync. (The only exceptions are `text-white` captions that sit over dark
+  hero-image overlays, which read correctly in either theme.)
 
 ---
 
