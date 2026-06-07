@@ -9,6 +9,15 @@ export const metadata: Metadata = {
     "The philosophy behind the residence — lifestyle goals, site and climate response, indoor-outdoor living, the courtyard, material and light, and the smart home.",
 };
 
+const concepts = [
+  "Contemporary Minimalism",
+  "Biophilic Design",
+  "Zen Minimalism",
+  "Japandi",
+  "Contemporary Zen",
+  "Scandinavian",
+];
+
 const pillars = [
   {
     title: "Lifestyle goals",
@@ -67,6 +76,42 @@ export default async function VisionPage() {
         <p className="font-serif text-2xl leading-relaxed text-foreground">
           {project.conceptStatement}
         </p>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 pb-16">
+        <SectionHeading
+          eyebrow="Design language"
+          title="Key design concepts"
+          className="mb-8"
+        />
+        <ul className="mb-10 flex flex-wrap gap-3">
+          {concepts.map((c) => (
+            <li
+              key={c}
+              className="rounded-full border border-border px-4 py-1.5 text-sm text-muted-foreground"
+            >
+              {c}
+            </li>
+          ))}
+        </ul>
+        <div className="max-w-3xl space-y-6 text-muted-foreground">
+          <p>
+            The residence blends sleek, minimalist geometries with cohesive
+            masses. By thoughtfully situating openings and transition areas, the
+            home achieves a seamless fusion of indoor and outdoor spaces. The
+            tranquil north-east green court — with its serene water body and lush
+            greenery — floods the interiors with soft, diffused sunlight while
+            offering an intimate open area for family life. The private spaces on
+            the upper floors enjoy picturesque views of this inviting courtyard.
+          </p>
+          <p>
+            Embracing the edge, where minimalist geometry meets architectural
+            mastery: behind every simple form lies a complex tapestry of effort —
+            unseen but vital. Clean lines and a restrained material palette of
+            neutral tones and seamless finishes give the home its spatial
+            clarity, with light and indoor–outdoor flow as the defining ornament.
+          </p>
+        </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-6 pb-20">
