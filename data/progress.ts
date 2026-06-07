@@ -1,0 +1,40 @@
+import type { ProgressEntry } from "@/types";
+
+export const progress: ProgressEntry[] = [
+  {
+    id: "prog-structure",
+    date: "2025-01-30",
+    phase: "Structure",
+    spaceId: "",
+    workCompleted: "RCC frame cast to first-floor slab; columns and beams complete.",
+    photos: [],
+    issues: "Minor honeycombing on one column — patched and approved.",
+    nextAction: "Cast second-floor slab and the gable volume.",
+    owner: "Main Contractor",
+    status: "Completed",
+  },
+  {
+    id: "prog-blockwork",
+    date: "2025-03-18",
+    phase: "Masonry",
+    spaceId: "sp-living",
+    workCompleted: "Blockwork to ground floor; living/courtyard openings framed.",
+    photos: [],
+    issues: "None.",
+    nextAction: "Begin internal plastering and microcement substrate prep.",
+    owner: "Main Contractor",
+    status: "In Progress",
+  },
+  {
+    id: "prog-courtyard",
+    date: "2025-04-22",
+    phase: "Waterproofing",
+    spaceId: "sp-courtyard",
+    workCompleted: "Courtyard reflecting-pool tank waterproofed; first ponding test passed.",
+    photos: [],
+    issues: "Watching the deck-edge junction for seepage over the next week.",
+    nextAction: "Stone deck edge and pool plumbing.",
+    owner: "Main Contractor + Waterproofing Specialist",
+    status: "In Progress",
+  },
+];

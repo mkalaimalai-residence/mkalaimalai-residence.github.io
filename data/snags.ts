@@ -1,0 +1,43 @@
+import type { Snag } from "@/types";
+
+export const snags: Snag[] = [
+  {
+    id: "snag-living-paint",
+    spaceId: "sp-living",
+    category: "Finishes",
+    description: "Microcement substrate shows a hairline crack near the courtyard door reveal.",
+    photoUrl: "",
+    assignedTo: "ven-paint",
+    priority: "Medium",
+    status: "Open",
+    targetClosureDate: "2025-05-15",
+    actualClosureDate: "",
+    notes: "Likely shrinkage; rake out and re-skim before topcoat.",
+  },
+  {
+    id: "snag-master-bath-leak",
+    spaceId: "sp-bath",
+    category: "Plumbing",
+    description: "Slow drip at the master bath concealed shower valve during pressure test.",
+    photoUrl: "",
+    assignedTo: "Plumbing Contractor",
+    priority: "High",
+    status: "In Progress",
+    targetClosureDate: "2025-05-08",
+    actualClosureDate: "",
+    notes: "Re-seat valve and re-test before tiling closes the wall.",
+  },
+  {
+    id: "snag-kitchen-shutter",
+    spaceId: "sp-kitchen",
+    category: "Carpentry",
+    description: "Two handleless shutters misaligned by ~2mm at the island run.",
+    photoUrl: "",
+    assignedTo: "ven-turkey",
+    priority: "Low",
+    status: "Open",
+    targetClosureDate: "2025-06-01",
+    actualClosureDate: "",
+    notes: "Adjust hinge cams on site at installation.",
+  },
+];
