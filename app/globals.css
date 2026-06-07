@@ -2,11 +2,13 @@
 
 /*
   Theme tokens — defined once here (build doc §3 / §12).
-  Warm minimal, contemporary, editorial. Light-only by design.
+  Warm minimal, contemporary, editorial. Light is the default; a warm
+  espresso `.dark` palette (below) is opt-in via the header toggle.
   Token names are shadcn/ui-compatible so future `shadcn add` components render correctly.
 */
 
 :root {
+  color-scheme: light;
   --radius: 0.5rem;
 
   /* Core palette */
@@ -35,6 +37,43 @@
   --ring: #c9bca6;
 
   --destructive: #b4452f; /* muted brick — critical snags / overdue */
+  --destructive-foreground: #faf7f2;
+}
+
+/*
+  Dark palette — same warm editorial character on a deep espresso ground.
+  Activated by the `dark` class on <html> (set by the header toggle and the
+  no-flash script in layout.tsx). Every surface is keyed off these tokens, so
+  this block is the single source of truth for dark mode.
+*/
+.dark {
+  color-scheme: dark;
+
+  --background: #16140f; /* warm espresso black */
+  --foreground: #ece7dd; /* warm ivory          */
+
+  --surface: #1e1b15; /* raised panel           */
+  --card: #1e1b15;
+  --card-foreground: #ece7dd;
+  --popover: #1e1b15;
+  --popover-foreground: #ece7dd;
+
+  --muted: #272219; /* sunken stone           */
+  --muted-foreground: #a89f8d; /* warm grey    */
+
+  --accent: #3a3226; /* soft brown             */
+  --accent-foreground: #ece7dd;
+
+  --primary: #ece7dd; /* inverts: ivory on espresso */
+  --primary-foreground: #16140f;
+  --secondary: #272219;
+  --secondary-foreground: #ece7dd;
+
+  --border: #332e25; /* warm hairline          */
+  --input: #332e25;
+  --ring: #6f6553;
+
+  --destructive: #cf5a42; /* brick, lifted for dark contrast */
   --destructive-foreground: #faf7f2;
 }
 
